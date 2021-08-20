@@ -1,0 +1,31 @@
+<h2>Found Employees</h2>
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row">
+          <%= link_to user.full_name, working_day_path(id: user.id), class: 'text-primary' %>
+        </th>
+        <td>
+          <%= user.gender.try(:capitalize) %>
+        </td>
+        <td>
+          <%= user.email %>
+        </td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+
+<%= link_to 'Back', :back %>

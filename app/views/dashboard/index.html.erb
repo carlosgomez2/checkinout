@@ -1,0 +1,15 @@
+<h1>Welcome <%= format_name %>!</h1>
+
+<p class="lead">
+  Make Check In and have a nice day! 
+</p>
+
+<hr>
+
+  <%= render 'search' if admin? %>
+
+  <%= render 'checkin_jumbotron' if employee? %>
+
+<br>
+
+<%= render 'links' %>

@@ -1,0 +1,22 @@
+<h1>History of <%= @user.full_name %></h1>
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Check In</th>
+      <th scope="col">Check Out</th>
+      <th scope="col">Worked Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_working_days.each do |day| %>
+      <tr>
+        <th scope="row"><%= check_format(day.checkin, 'date') %></th>
+        <td><%= check_format(day.checkin, 'time') %></td>
+        <td><%= check_format(day.checkout, 'time') %></td>
+        <td><%= day.worked_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

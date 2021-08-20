@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkinout</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'shared/bootstrap' %>
+  </head>
+
+  <body style="height: 100vh !important;">
+    <%= render 'shared/navbar' %>
+
+    <!-- Flash Messages -->
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-primary" %>
+    <% end %>
+
+    <div class="container mt-5">
+      <%= yield %>
+    </div>
+  </body>
+</html>

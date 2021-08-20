@@ -1,0 +1,35 @@
+<h1>History of the workday</h1>
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Check In</th>
+      <th scope="col">Check Out</th>
+      <th scope="col">Worked Hours</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <%# WorkingDay Object:  %>
+    <%# WorkingDay id: 5, checkin: "2020-02-15 13:00:00", checkout: "2020-02-15 15:00:00", user_id: 2, created_at: "2020-02-11 21:35:13", updated_at: "2020-02-11 21:35:13" %>
+
+
+    <% @working_days.each do |day| %>
+      <tr>
+        <th scope="row">
+          <%# If current_user is admin, must see link for specific user, if is a employee cannot see the link %>
+          <%= link_to day.user.full_name, working_day_path(id: day.user.id), class: 'text-primary' if admin? %>
+          <%= day.user.full_name if employee? %>
+        </th>
+        <td><%= check_format(day.checkin, 'date') %></td>
+        <td><%= check_format(day.checkin, 'time') %></td>
+        <td><%= check_format(day.checkout, 'time') %></td>
+        <td><%= day.worked_time %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+

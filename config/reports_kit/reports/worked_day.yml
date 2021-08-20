@@ -1,0 +1,16 @@
+data_method: WorkingDay.worked_hours
+filters:
+  - user
+chart:
+  options:
+    legend:
+      display: false
+    scales:
+      xAxes:
+      - scaleLabel:
+          display: true
+          labelString: Employee
+      yAxes:
+      - scaleLabel:
+          display: true
+          labelString: Hours
